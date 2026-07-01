@@ -93,16 +93,25 @@
   </style>
 
   <script>
-  const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzwsk5df73lSygVNjc6g3N0B9VDnRaWka2BCN2gYOuu-2hSjRUwwi86P1hqaxk09nYjYA/exec';
+    const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzwsk5df73lSygVNjc6g3N0B9VDnRaWka2BCN2gYOuu-2hSjRUwwi86P1hqaxk09nYjYA/exec';
 
-  document.addEventListener('DOMContentLoaded', function () {
-    const openBtn = document.getElementById('openAppBtn');
-
-    if (openBtn) {
-      openBtn.href = WEBAPP_URL;
+    function isStandaloneMode() {
+      return window.navigator.standalone === true ||
+             window.matchMedia('(display-mode: standalone)').matches;
     }
-  });
-</script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const openBtn = document.getElementById('openAppBtn');
+
+      if (openBtn) {
+        openBtn.href = WEBAPP_URL;
+      }
+
+      if (isStandaloneMode()) {
+        window.location.replace(WEBAPP_URL);
+      }
+    });
+  </script>
 </head>
 
 <body>
