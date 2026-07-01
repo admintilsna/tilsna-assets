@@ -93,25 +93,14 @@
   </style>
 
   <script>
-    const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzwsk5df73lSygVNjc6g3N0B9VDnRaWka2BCN2gYOuu-2hSjRUwwi86P1hqaxk09nYjYA/exec';
+  const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzwsk5df73lSygVNjc6g3N0B9VDnRaWka2BCN2gYOuu-2hSjRUwwi86P1hqaxk09nYjYA/exec';
 
-    function isStandaloneMode() {
-      return window.navigator.standalone === true ||
-             window.matchMedia('(display-mode: standalone)').matches;
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-      const openBtn = document.getElementById('openAppBtn');
-
-      if (openBtn) {
-        openBtn.href = WEBAPP_URL;
-      }
-
-      if (isStandaloneMode()) {
-        window.location.replace(WEBAPP_URL);
-      }
-    });
-  </script>
+  document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () {
+      window.location.replace(WEBAPP_URL);
+    }, 500);
+  });
+</script>
 </head>
 
 <body>
@@ -119,14 +108,6 @@
     <img src="https://admintilsna.github.io/tilsna-assets/tilsna-icon-512.png?v=3" alt="TILSNA Logo">
     <h1>TILSNA Service Hub</h1>
     <p>ระบบจองห้องประชุม จองรถยนต์สำนักงาน และข้อมูลเจ้าหน้าที่</p>
-
-    <a id="openAppBtn" class="btn" href="#">
-      เปิดระบบ
-    </a>
-
-    <div class="hint">
-      สำหรับ iPhone/iPad: เปิดหน้านี้ด้วย Safari แล้วกด Share &gt; Add to Home Screen
-    </div>
   </div>
 </body>
 </html>
