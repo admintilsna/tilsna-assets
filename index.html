@@ -96,9 +96,11 @@
   const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzwsk5df73lSygVNjc6g3N0B9VDnRaWka2BCN2gYOuu-2hSjRUwwi86P1hqaxk09nYjYA/exec';
 
   document.addEventListener('DOMContentLoaded', function () {
-    setTimeout(function () {
-      window.location.replace(WEBAPP_URL);
-    }, 500);
+    const openBtn = document.getElementById('openAppBtn');
+
+    if (openBtn) {
+      openBtn.href = WEBAPP_URL;
+    }
   });
 </script>
 </head>
